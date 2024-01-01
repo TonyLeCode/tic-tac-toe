@@ -25,11 +25,11 @@ class TicTacToeBoard:
         return self.board[index] == 0
 
     def get_available_moves(self):
-        avaiable_moves = []
-        for index in self.board:
+        available_moves = []
+        for index in range(len(self.board)):
             if self.validate_move(index):
-                avaiable_moves.append(index)
-        return avaiable_moves
+                available_moves.append(index)
+        return available_moves
 
     def make_move(self, index):
         self.board[index] = self.current_player
