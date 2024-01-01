@@ -9,8 +9,8 @@ class AI:
     def setAI(self, ai):
         self.ai = ai
 
-    def makeMove(self, board):
-        self.ai.makeMove(board)
+    def getMove(self, board):
+        return self.ai.getMove(board)
 
 
 def prompt_move():
@@ -35,12 +35,13 @@ def game_loop():
             print("default ai")
             pass
 
-    playerTurn = int(input("Choose 0(X) or 1(O): "))
-    while playerTurn != 0 or playerTurn != 1:
+    playerTurn = int(input("Choose 1(X) or 2(O): "))
+    while playerTurn not in [1,2]:
         print("Invalid choice.")
-        playerTurn = int(input("Choose 0(X) or 1(O): "))
+        playerTurn = int(input("Choose 1(X) or 2(O): "))
     board = TicTacToeBoard()
     result = 0
+    board.get_available_moves()
 
     while result == 0:
         board.print()
@@ -48,7 +49,7 @@ def game_loop():
         if board.current_player == playerTurn:
             move = prompt_move()
         else:
-            move = ai.makeMove(board)
+            move = ai.getMove(board)
 
         if not isinstance(move, int):
             print("Invalid input")
