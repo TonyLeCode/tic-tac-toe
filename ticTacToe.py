@@ -11,6 +11,7 @@ class TicTacToeBoard:
     def __init__(self, board=[0, 0, 0, 0, 0, 0, 0, 0, 0], current_player=1):
         # 0 is empty, 1 is X, 2 is O
         self.board = board
+        # 1 is X, 2 is O
         self.current_player = current_player
 
     def print(self):
@@ -33,6 +34,9 @@ class TicTacToeBoard:
 
     def make_move(self, index):
         self.board[index] = self.current_player
+    
+    def clear_index(self, index):
+        self.board[index] = 0
 
     def toggle_player(self):
         if self.current_player == 1:

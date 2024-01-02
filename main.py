@@ -18,7 +18,7 @@ def game_loop():
             if result == 0:
                 board.toggle_player()
         else:
-          print("Invalid move!")
+            print("Invalid move!")
 
     print("Game has ended.")
     if result == 1:

@@ -11,6 +11,9 @@ class AI:
 
     def getMove(self, board):
         return self.ai.getMove(board)
+    
+    def setAiTurn(self, ai_turn: int):
+        self.ai.setAiTurn(ai_turn)
 
 
 def prompt_move():
@@ -39,7 +42,12 @@ def game_loop():
     while playerTurn not in [1,2]:
         print("Invalid choice.")
         playerTurn = int(input("Choose 1(X) or 2(O): "))
+    if (playerTurn == 1):
+        ai.setAiTurn(2)
+    else:
+        ai.setAiTurn(1)
     board = TicTacToeBoard()
+    # board = TicTacToeBoard([0, 1, 2, 0, 1, 0, 0, 2, 0])
     result = 0
     board.get_available_moves()
 
