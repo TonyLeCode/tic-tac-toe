@@ -1,5 +1,3 @@
-from ticTacToe import TicTacToeBoard
-
 class Minimax:
     def __init__(self, ai_turn = 1):
         self.ai_turn = ai_turn
@@ -11,13 +9,13 @@ class Minimax:
         bestVal = -1000
         bestMove = -1
 
+        # Uses backtracking
         available_moves = board.get_available_moves()
         for move in available_moves:
             board.make_move(move)
             moveValue = self.__algorithm(board, 0, False)
             board.clear_index(move)
             board.toggle_player()
-            print(moveValue, move)
             if moveValue > bestVal:
                 bestMove = move
                 bestVal = moveValue
