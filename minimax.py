@@ -13,6 +13,9 @@ class Minimax:
         available_moves = board.get_available_moves()
         for move in available_moves:
             board.make_move(move)
+            # AI is the maximizer because it's always given score of 10 if it wins
+            # However, a move will be made above, therefore false will be passed in
+            # the following function since it will be evaluating the opponent's move
             moveValue = self.__algorithm(board, 0, False)
             board.clear_index(move)
             board.toggle_player()
