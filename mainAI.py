@@ -1,5 +1,6 @@
 from ticTacToe import TicTacToeBoard, decode
 from minimax import Minimax
+from alphaBetaPruning import AlphaBetaPruning
 
 
 class AI:
@@ -23,7 +24,7 @@ def prompt_move():
 def game_loop():
     ai = AI()
     print("0: Minimax")
-    # print("1: Alpha-beta Pruning")
+    print("1: Alpha-beta Pruning")
     # print("2: Monte Carlo Tree Search")
     # print("3: Neural Network")
     aiInput = int(input("Choose an AI: "))
@@ -34,6 +35,9 @@ def game_loop():
         case 0:
             minimaxAI = Minimax()
             ai.setAI(minimaxAI)
+        case 1:
+            alphaBetaPruningAI = AlphaBetaPruning()
+            ai.setAI(alphaBetaPruningAI)
         case _:
             print("default ai")
             pass
