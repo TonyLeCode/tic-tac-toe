@@ -28,7 +28,7 @@ def game_loop():
     # print("2: Monte Carlo Tree Search")
     # print("3: Neural Network")
     aiInput = int(input("Choose an AI: "))
-    while aiInput not in [0]:
+    while aiInput not in [0,1]:
         print("Invalid choice.")
         aiInput = int(input("Choose an AI: "))
     match aiInput:
